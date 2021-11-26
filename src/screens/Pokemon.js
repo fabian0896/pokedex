@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text, ActivityIndicator } from 'react-native'
+import { ScrollView, ActivityIndicator } from 'react-native'
 import { useRoute } from '@react-navigation/native';
+
 import usePokemon from '../hooks/usePokemon';
+import { PokeHeader, PokeTypes} from '../components';
 
 export default function Pokemon() {
   const route = useRoute();
@@ -12,8 +14,14 @@ export default function Pokemon() {
   }
 
   return (
-    <View>
-      <Text>Estoms en un pokemon con id: {pokemon.name}</Text>
-    </View>
+    <ScrollView>
+      <PokeHeader 
+        image={pokemon.sprites.other['official-artwork'].front_default}
+        name={pokemon.name}
+        order={pokemon.order}
+        type={pokemon.types[0].type.name} 
+      />
+      <PokeTypes types={pokemon.types} />
+    </ScrollView>
   )
 }
