@@ -12,7 +12,6 @@ export async function getPokemonsApi(customUrl) {
 };
 
 export async function getPokemonDetailsApi(url) {
-  console.log(url);
   const { data } = await axios.get(url);
   return data;
 };

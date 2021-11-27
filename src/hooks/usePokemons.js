@@ -20,7 +20,6 @@ const usePokemons = () => {
     setPokemons([...pokemons,...pokemonsFormat]);
     setNext(res.next);
     setHasMore(Boolean(res.next));
-    console.log(pokemonsFormat);
   };
 
 

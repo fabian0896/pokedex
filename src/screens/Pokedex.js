@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { getPokemonsApi, getPokemonDetailsApi } from '../api/pokemon';
 import { PokemonList } from '../components';
 import { usePokemons } from '../hooks';
 

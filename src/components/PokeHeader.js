@@ -1,20 +1,27 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { startCase } from 'lodash';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import tw from 'tailwind-react-native-classnames';
 
 import { getColorByPkemonType } from '../utils/getColorByPokemonType';
 
-export default function PokeHeader({ image, type, name, order }) {
+import PokeTypes from './PokeTypes';
+
+export default function PokeHeader({ image, type, name, order, types }) {
   return (
     <>
       <View style={StyleSheet.compose(
         styles.header,
         { backgroundColor: getColorByPkemonType(type) }
       )}/>
-      <SafeAreaView style={tw`mx-3 mt-6`}>
-        <View style={tw`flex-row justify-between items-center pt-10`}>
-          <Text style={tw`text-white text-2xl font-bold`}>{name}</Text>
-          <Text style={tw`text-white text-xl`}>#{String(order).padStart(3, '0')}</Text>
+      <SafeAreaView style={tw`mx-4`}>
+        <View style={tw`flex-row justify-between items-center pt-12`}>
+          <View>
+            <Text style={tw`text-white text-3xl font-bold`}>{startCase(name)}</Text>
+            <PokeTypes types={types} />
+          </View>
+          <Text style={tw`text-white text-lg font-bold`}>#{String(order).padStart(3, '0')}</Text>
         </View>
         <View style={styles.contentImg}>
           <Image source={{ uri: image }} style={styles.pokeImage} />
