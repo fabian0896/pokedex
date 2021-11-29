@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Favortie } from '../screens';
+import { Favortie, Pokemon } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +15,14 @@ export default function FavoriteNavigation() {
           title: 'Favoritos',
         }}
       />
+      <Stack.Screen 
+        name="Pokemon"
+        component={Pokemon}
+        options={{
+          title: '',
+          headerTransparent: true,
+        }}
+      />
     </Stack.Navigator>
-  )
+  );
 }

@@ -2,7 +2,10 @@ import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 
+import { useFavorites } from '../../hooks';
+
 export default function UserData({ user, onLogout }) {
+  const { count } = useFavorites(false);
   return (
     <View>
       <View style={tw`mx-5 mt-10`}>
@@ -13,7 +16,7 @@ export default function UserData({ user, onLogout }) {
         <Item title="Nombre:" text={`${user.firstName} ${user.lastName}`} />
         <Item title="Username:" text={user.username} />
         <Item title="Email:" text={user.email} />
-        <Item title="Total Favoritos:" text="0 Pokemons" />
+        <Item title="Total Favoritos:" text={`${count} ${count > 1 ? 'Pokemons' : 'Pokemon'}`} />
       </View>
       <View style={tw`mx-5 mt-10`}>
         <Pressable onPress={onLogout} style={tw`bg-red-500 p-4 rounded shadow`}>
