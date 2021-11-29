@@ -18,7 +18,7 @@ export default function PokeStats({ stats }) {
             <Text style={tw`text-center text-gray-800 font-semibold`}>{item.base_stat}</Text>
           </View>
           <View style={tw`w-6/12`}>
-            <View style={tw`h-1 bg-gray-300 rounded-full overflow-hidden shadow`}>
+            <View style={tw`h-1 bg-gray-300 rounded-full overflow-hidden`}>
               <View style={StyleSheet.compose(
                 { width: `${item.base_stat}%` },
                 tw`h-full ${item.base_stat > 49? 'bg-green-500' : 'bg-red-500'} rounded-full`,

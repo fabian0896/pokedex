@@ -5,12 +5,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Navigation from './src/navigation/Navigation';
+import AuthProvider from './src/context/auth';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigation />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
 
